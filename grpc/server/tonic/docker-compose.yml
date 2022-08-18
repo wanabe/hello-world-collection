@@ -1,0 +1,12 @@
+version: '3'
+services:
+  server:
+    build: docker
+    command: sh -c 'cargo run; sleep infinity'
+    volumes:
+      - ../../../:/opt/project
+      - ../../../volumes/cargo/registry:/usr/local/cargo/registry
+      - ../../../volumes/rust/target:/opt/project/grpc/server/tonic/target
+    working_dir: /opt/project/grpc/server/tonic
+    ports:
+      - 50051:50051
