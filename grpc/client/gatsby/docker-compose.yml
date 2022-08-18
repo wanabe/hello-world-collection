@@ -1,0 +1,13 @@
+version: '3'
+services:
+  client:
+    build: docker
+    command: sh ./start.sh
+    volumes:
+      - ../../../:/opt/project
+      - ../../../volumes/node_modules:/opt/project/grpc/client/gatsby/node_modules
+      - ../../../volumes/gatsby/.cache:/opt/project/grpc/client/gatsby/.cache
+      - ../../../volumes/gatsby/public:/opt/project/grpc/client/gatsby/public
+    working_dir: /opt/project/grpc/client/gatsby
+    ports:
+      - 8000:8000
