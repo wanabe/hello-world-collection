@@ -1,0 +1,22 @@
+type Greeting {
+  message: String!
+}
+
+type Template {
+  hello: String!
+  suffix: String!
+}
+
+type Query {
+  greeting(name: String!): Greeting!
+  template: Template!
+}
+
+input NewTemplate {
+  hello: String
+  suffix: String
+}
+
+type Mutation {
+  replaceTemplate(input: NewTemplate!): Boolean
+}

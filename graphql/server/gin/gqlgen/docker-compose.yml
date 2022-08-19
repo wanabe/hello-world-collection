@@ -1,0 +1,11 @@
+version: '3'
+services:
+  server:
+    build: docker
+    command: go run server.go
+    volumes:
+      - "../../../../:/opt/project"
+      - "../../../../volumes/go:/go"
+    working_dir: "/opt/project/graphql/server/gin/gqlgen"
+    ports:
+      - 8765:8765
