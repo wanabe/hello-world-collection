@@ -1,0 +1,12 @@
+version: '3'
+services:
+  client:
+    build: docker
+    command: sh start.sh
+    volumes:
+      - ../../../:/opt/project
+      - ../../../volumes/node_modules:/opt/project//graphql/client/sveltekit/node_modules
+      - ../../../volumes/sveltekit/.svelte-kit:/opt/project//graphql/client/sveltekit/.svelte-kit
+    working_dir: /opt/project/graphql/client/sveltekit
+    ports:
+      - 5173:5173
